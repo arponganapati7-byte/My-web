@@ -21,33 +21,32 @@ function Contact() {
 
     const formData = new FormData(form);
 
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
 
     try {
       const result = await fetch(
-        "http://localhost:5000/api/contact",
+        "https://my-portfolio-backend-n7y9.onrender.com/api/contact",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            name,
-            email,
-            subject: "New Portfolio Message from Arpon's Web",
-            message,
-          }),
+          body: JSON.stringify(data),
         }
       );
 
-      const data = await result.json();
+      const responseData = await result.json();
 
-      if (result.ok && data.success) {
+      if (result.ok && responseData.success) {
         setResponse({
           type: "success",
-          message: "Success! Your message has been sent to Gmail.",
+          message:
+            "Success! Your message has been sent directly to Gmail.",
         });
 
         form.reset();
@@ -55,7 +54,8 @@ function Contact() {
         setResponse({
           type: "error",
           message:
-            data.message || "Failed to send message.",
+            responseData.message ||
+            "Failed to send message.",
         });
       }
     } catch (error) {
@@ -64,7 +64,7 @@ function Contact() {
       setResponse({
         type: "error",
         message:
-          "Unable to connect to the server. Please try again.",
+          "Unable to connect to the server. Please try again later.",
       });
     } finally {
       setIsSending(false);
