@@ -39,7 +39,7 @@ function Hero() {
           "
         >
           <img
-            src="/images/profile.jpg"
+            src={`${import.meta.env.BASE_URL}images/profile.jpg`}
             alt="Arpon"
             className="
               w-full
