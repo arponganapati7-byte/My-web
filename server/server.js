@@ -11,8 +11,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    "https://arpon-web.vercel.app": true,
+    origin: [
+      "http://localhost:5173",
+      "https://arpon-web.vercel.app",
+    ],
   })
 );
 
