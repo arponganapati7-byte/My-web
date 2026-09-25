@@ -7,5 +7,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/My-web/",
+
+  base: process.env.VERCEL ? "/" : "/My-web/",
 });
