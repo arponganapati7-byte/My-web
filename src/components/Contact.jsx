@@ -33,7 +33,7 @@ function Contact() {
 
       const timeout = setTimeout(() => {
         controller.abort();
-      }, 10000);
+      }, 60000);
 
       const result = await fetch(
         "https://my-portfolio-backend-vjrn.onrender.com/api/contact",
