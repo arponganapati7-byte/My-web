@@ -29,6 +29,12 @@ function Contact() {
     };
 
     try {
+      const controller = new AbortController();
+
+      const timeout = setTimeout(() => {
+        controller.abort();
+      }, 10000);
+
       const result = await fetch(
         "https://my-portfolio-backend-vjrn.onrender.com/api/contact",
         {
@@ -37,25 +43,25 @@ function Contact() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
+          signal: controller.signal,
         }
       );
+
+      clearTimeout(timeout);
 
       const responseData = await result.json();
 
       if (result.ok && responseData.success) {
         setResponse({
           type: "success",
-          message:
-            "Success! Your message has been sent directly to Gmail.",
+          message: "Success! Your message has been sent directly to Gmail.",
         });
 
         form.reset();
       } else {
         setResponse({
           type: "error",
-          message:
-            responseData.message ||
-            "Failed to send message.",
+          message: responseData.message || "Failed to send message.",
         });
       }
     } catch (error) {
@@ -64,7 +70,9 @@ function Contact() {
       setResponse({
         type: "error",
         message:
-          "Unable to connect to the server. Please try again later.",
+          error.name === "AbortError"
+            ? "Server took too long to respond. Please try again."
+            : "Unable to connect to the server. Please try again later.",
       });
     } finally {
       setIsSending(false);
