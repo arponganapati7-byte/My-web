@@ -29,25 +29,13 @@ function Contact() {
     };
 
     try {
-      const controller = new AbortController();
-
-      const timeout = setTimeout(() => {
-        controller.abort();
-      }, 60000);
-
-      const result = await fetch(
-        "https://my-portfolio-backend-vjrn.onrender.com/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-          signal: controller.signal,
-        }
-      );
-
-      clearTimeout(timeout);
+      const result = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
       const responseData = await result.json();
 
@@ -69,10 +57,7 @@ function Contact() {
 
       setResponse({
         type: "error",
-        message:
-          error.name === "AbortError"
-            ? "Server took too long to respond. Please try again."
-            : "Unable to connect to the server. Please try again later.",
+        message: "Unable to send your message. Please try again.",
       });
     } finally {
       setIsSending(false);
