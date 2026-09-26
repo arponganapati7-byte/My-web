@@ -14,6 +14,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://arpon-web.vercel.app",
+      "https://arponganapati7-byte.github.io/My-web/",
     ],
   })
 );
