@@ -55,18 +55,78 @@ function useScrollAnimations(isLoaded = true) {
          ABOUT
       ======================================== */
 
-      gsap.from(".bento-reveal", {
-        scrollTrigger: {
-          trigger: "#about",
-          start: "top 80%",
+      gsap.fromTo(
+        "#about",
+        {
+          y: 40,
+          opacity: 0,
         },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
 
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
+          scrollTrigger: {
+            trigger: "#about",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      /* ========================================
+         SKILL CATEGORY CARDS
+      ======================================== */
+
+      gsap.fromTo(
+        ".skill-category-reveal",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.18,
+          ease: "power3.out",
+
+          scrollTrigger: {
+            trigger: "#skills",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      /* ========================================
+         SKILL BARS
+      ======================================== */
+
+      gsap.utils
+        .toArray("#skills .skill-progress")
+        .forEach((bar) => {
+          const width = bar.dataset.width;
+
+          gsap.fromTo(
+            bar,
+            {
+              width: "0%",
+            },
+            {
+              width,
+              duration: 1.8,
+              ease: "power3.out",
+
+              scrollTrigger: {
+                trigger: bar,
+                start: "top 90%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        });
 
       /* ========================================
          PROJECTS
@@ -76,6 +136,7 @@ function useScrollAnimations(isLoaded = true) {
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
+          toggleActions: "play none none none",
         },
 
         y: 60,
@@ -85,32 +146,15 @@ function useScrollAnimations(isLoaded = true) {
         ease: "power4.out",
       });
 
-      /* ========================================
-         SKILL BARS
-      ======================================== */
-
-      gsap.utils
-        .toArray(".skill-progress")
-        .forEach((bar) => {
-          const width = bar.dataset.width;
-
-          gsap.to(bar, {
-            scrollTrigger: {
-              trigger: bar,
-              start: "top 90%",
-            },
-
-            width,
-            duration: 1.5,
-            ease: "power2.out",
-          });
-        });
+      ScrollTrigger.refresh();
     });
 
     return () => {
       context.revert();
     };
   }, [isLoaded]);
+
+  return null;
 }
 
 export default useScrollAnimations;

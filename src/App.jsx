@@ -4,6 +4,7 @@ import Preloader from "./components/Preloader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import ProjectSection from "./components/projects/ProjectSection";
 import Location from "./components/Location";
 import Contact from "./components/Contact";
@@ -31,8 +32,8 @@ function App() {
       <div
         className="
           blob
-          w-[500px]
-          h-[500px]
+          w-\[500px]\
+          h-\[500px]\
           bg-brand-primary
           top-[-10%]
           left-[-10%]
@@ -43,8 +44,8 @@ function App() {
       <div
         className="
           blob
-          w-[400px]
-          h-[400px]
+          w-\[400px]\
+          h-\[400px]\
           bg-brand-accent
           bottom-[-10%]
           right-[-10%]
@@ -62,6 +63,8 @@ function App() {
         <Hero />
 
         <About />
+
+        <Skills />
 
         <ProjectSection />
 
