@@ -77,7 +77,7 @@ function Skills() {
             </h2>
 
             {/* Animated Premium Divider */}
-            <div className="relative w-32 h-[3px] rounded-full overflow-hidden mb-7">
+            <div className="relative w-32 h-\[3px\] rounded-full overflow-hidden mb-7">
                 <div
                 className="
                     absolute
