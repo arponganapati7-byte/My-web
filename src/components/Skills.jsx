@@ -1,3 +1,5 @@
+// src/components/Skills.jsx
+
 import {
   Code2,
   Server,
@@ -20,6 +22,7 @@ function Skills() {
         { name: "JSX", percentage: 55 },
         { name: "React", percentage: 60 },
         { name: "Vite", percentage: 65 },
+        { name: "TypeScript", percentage: 35 },
         { name: "Tailwind CSS", percentage: 50 },
         { name: "Responsive Design", percentage: 55 },
       ],
@@ -66,7 +69,6 @@ function Skills() {
 
   return (
     <section id="skills" className="mb-40">
-      {/* Heading */}
       <div className="mb-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">
           Technical Skills
@@ -79,7 +81,6 @@ function Skills() {
         </p>
       </div>
 
-      {/* Categories */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories.map((category) => {
           const Icon = category.icon;

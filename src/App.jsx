@@ -1,3 +1,5 @@
+// src/App.jsx
+
 import { useState } from "react";
 
 import Preloader from "./components/Preloader";
@@ -13,27 +15,23 @@ import Footer from "./components/Footer";
 import useScrollAnimations from "./hooks/useScrollAnimations";
 
 function App() {
-  const [loaded, setLoaded] =
-    useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useScrollAnimations(loaded);
 
   return (
     <>
       <Preloader
-        onComplete={() =>
-          setLoaded(true)
-        }
+        onComplete={() => setLoaded(true)}
       />
 
       <Navbar />
 
-      {/* Background blobs */}
       <div
         className="
           blob
-          w-\[500px]\
-          h-\[500px]\
+          w-[500px]/
+          h-[500px]/
           bg-brand-primary
           top-[-10%]
           left-[-10%]
@@ -44,8 +42,8 @@ function App() {
       <div
         className="
           blob
-          w-\[400px]\
-          h-\[400px]\
+          w-[400px]/
+          h-[400px]/
           bg-brand-accent
           bottom-[-10%]
           right-[-10%]

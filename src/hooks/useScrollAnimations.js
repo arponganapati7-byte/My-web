@@ -1,3 +1,5 @@
+// src/hooks/useScrollAnimations.js
+
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,10 +11,6 @@ function useScrollAnimations(isLoaded = true) {
     if (!isLoaded) return;
 
     const context = gsap.context(() => {
-      /* ========================================
-         HERO
-      ======================================== */
-
       const timeline = gsap.timeline();
 
       timeline
@@ -51,10 +49,6 @@ function useScrollAnimations(isLoaded = true) {
           "-=0.6"
         );
 
-      /* ========================================
-         ABOUT
-      ======================================== */
-
       gsap.fromTo(
         "#about",
         {
@@ -66,7 +60,6 @@ function useScrollAnimations(isLoaded = true) {
           opacity: 1,
           duration: 1,
           ease: "power3.out",
-
           scrollTrigger: {
             trigger: "#about",
             start: "top 80%",
@@ -74,10 +67,6 @@ function useScrollAnimations(isLoaded = true) {
           },
         }
       );
-
-      /* ========================================
-         SKILL CATEGORY CARDS
-      ======================================== */
 
       gsap.fromTo(
         ".skill-category-reveal",
@@ -91,7 +80,6 @@ function useScrollAnimations(isLoaded = true) {
           duration: 1,
           stagger: 0.18,
           ease: "power3.out",
-
           scrollTrigger: {
             trigger: "#skills",
             start: "top 80%",
@@ -99,10 +87,6 @@ function useScrollAnimations(isLoaded = true) {
           },
         }
       );
-
-      /* ========================================
-         SKILL BARS
-      ======================================== */
 
       gsap.utils
         .toArray("#skills .skill-progress")
@@ -118,7 +102,6 @@ function useScrollAnimations(isLoaded = true) {
               width,
               duration: 1.8,
               ease: "power3.out",
-
               scrollTrigger: {
                 trigger: bar,
                 start: "top 90%",
@@ -128,17 +111,12 @@ function useScrollAnimations(isLoaded = true) {
           );
         });
 
-      /* ========================================
-         PROJECTS
-      ======================================== */
-
       gsap.from(".project-card-reveal", {
         scrollTrigger: {
           trigger: "#projects",
           start: "top 80%",
           toggleActions: "play none none none",
         },
-
         y: 60,
         opacity: 0,
         duration: 1,
