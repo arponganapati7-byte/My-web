@@ -63,23 +63,55 @@ function Skills() {
       icon: Cpu,
       skills: [
         { name: "C++", percentage: 74 },
+        { name: "Python", percentage: 60 },
       ],
     },
   ];
 
   return (
     <section id="skills" className="mb-40">
-      <div className="mb-10">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Technical Skills
-        </h2>
+     
+        <div className="mb-14 text-center flex flex-col items-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-5">
+                Technical Skills
+            </h2>
 
-        <p className="text-slate-400 text-lg max-w-2xl">
-          Technologies, frameworks, programming languages,
-          tools, and platforms I have learned through
-          hands-on projects and continuous practice.
-        </p>
-      </div>
+            {/* Animated Premium Divider */}
+            <div className="relative w-32 h-[3px] rounded-full overflow-hidden mb-7">
+                <div
+                className="
+                    absolute
+                    inset-0
+                    rounded-full
+                    bg-linear-to-r
+                    from-indigo-500
+                    via-cyan-400
+                    to-indigo-500
+                    animate-[skillLine_2.5s_ease-in-out_infinite]
+                "
+                />
+
+                <div
+                className="
+                    absolute
+                    top-0
+                    left-[-40%]
+                    w-[40%]
+                    h-full
+                    rounded-full
+                    bg-white/80
+                    blur-[2px]
+                    animate-[skillGlow_2.5s_ease-in-out_infinite]
+                "
+                />
+            </div>
+
+            <p className="text-slate-400 text-lg max-w-3xl leading-relaxed">
+                Technologies, frameworks, programming languages,
+                tools, and platforms I have learned through
+                hands-on projects and continuous practice.
+            </p>
+            </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {categories.map((category) => {

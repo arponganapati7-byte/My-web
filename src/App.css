@@ -70,6 +70,40 @@
   }
 }
 
+@keyframes skillLine {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skillGlow {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(350%);
+    opacity: 0;
+  }
+}
+
 #next-steps {
   display: flex;
   border-top: 1px solid var(--border);
