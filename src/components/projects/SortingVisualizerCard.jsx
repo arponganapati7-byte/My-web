@@ -584,7 +584,7 @@ function SortingVisualizerCard() {
             items-end
             justify-center
             gap-1.5
-            h-[260px]
+            h-\[260px\]
             pb-1
           "
         >
