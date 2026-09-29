@@ -44,7 +44,7 @@ function Skills() {
       skills: [
         { name: "Git", percentage: 65 },
         { name: "GitHub", percentage: 65 },
-        { name: "npm", percentage: 45 },
+        { name: "npm", percentage: 50 },
         { name: "VS Code", percentage: 65 },
       ],
     },
@@ -53,8 +53,8 @@ function Skills() {
       title: "Deployment",
       icon: Rocket,
       skills: [
-        { name: "Netlify", percentage: 55 },
-        { name: "Vercel", percentage: 40 },
+        { name: "Netlify", percentage: 59 },
+        { name: "Vercel", percentage: 78 },
       ],
     },
 
