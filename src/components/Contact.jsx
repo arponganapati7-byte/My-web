@@ -7,6 +7,9 @@ import {
   Phone,
 } from "lucide-react";
 
+import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
+
+
 function Contact() {
   const [isSending, setIsSending] = useState(false);
   const [response, setResponse] = useState(null);
@@ -258,7 +261,7 @@ function Contact() {
                 py-4
                 px-8
                 rounded-full
-                bg-gradient-to-r
+                bg-linear-to-r
                 from-brand-primary
                 to-brand-secondary
                 text-white
@@ -340,6 +343,20 @@ function Contact() {
             icon={<Phone />}
             title="Personal Phone Number"
             text="+880 1626-827360"
+          />
+          <ContactCard
+            href="https://www.linkedin.com/in/arpon-ganapati"
+            icon={<FaLinkedin />}
+            title="LinkedIn"
+            text="Connect with Arpon on LinkedIn"
+            external
+          />
+          <ContactCard
+            href="https://wa.me/arpon_rizz_99"
+            icon={<FaWhatsapp />}
+            title="WhatsApp"
+            text="Chat with Arpon on WhatsApp"
+            external
           />
 
           <ContactCard
